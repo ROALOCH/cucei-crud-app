@@ -13,18 +13,25 @@ Este repositorio contiene los archivos generados para la construcción de una ap
 #### Requerimientos Previos
 
 - [Node (^12.18.3)](https://nodejs.org/dist/v14.15.0/node-v14.15.0-x64.msi)
+- [MySQL (^5.7.24)](https://dev.mysql.com/downloads/mysql/5.7.html)
 
-Descargar o clonar el repositorio, y en la carpeta raíz del proyecto ejecutar:
+Descargar o clonar el repositorio, y en la carpeta raíz del proyecto ejecutar los comandos
 
 ```
 npm install
 npm run build
 ```
 
-Con esto, se instalarán las dependencias necesarias para la ejecución del proyecto. Para el despliegue del proyecto de manera local, ejecutar el comando:
+Renombrar el archivo `.env.example` a `.env` y colocar los datos de conexión a la base de datos en las variables de entorno correspondientes. Para iniciar la migración de tablas, ejecutar el comando
 
 ```
-npm start
+npm run migrate
+```
+
+Para iniciar el proyecto ejecutar el comando
+
+```
+npm run dev
 ```
 
 Una vez ejecutado el comando anterior, el proyecto se puede visualizar en [http://localhost:3000](http://localhost:3000)
