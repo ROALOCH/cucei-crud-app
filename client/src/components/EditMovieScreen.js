@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import { Rate } from "antd";
 import { GlobalContext } from "../context/GlobalState";
+import "antd/dist/antd.css";
+import { Navbar } from "./ui/Navbar";
 
 export const EditMovieScreen = () => {
   const { id } = useParams();
@@ -18,6 +21,10 @@ export const EditMovieScreen = () => {
     setSelectedMovie({ ...selectedMovie, [e.target.name]: e.target.value });
   };
 
+  const onChangeRating = (value) => {
+    setSelectedMovie({ ...selectedMovie, rating: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     editMovie(selectedMovie);
@@ -26,6 +33,7 @@ export const EditMovieScreen = () => {
 
   return (
     <>
+      <Navbar page='movie-page' />
       <div className='container mt-5'>
         <h1>Editar Película</h1>
         <hr />
@@ -53,17 +61,12 @@ export const EditMovieScreen = () => {
             />
           </div>
           <div className='form-group'>
-            <label for=''>Calificación (1 a 5)</label>
-            <input
-              name='rating'
-              type='number'
-              className='form-control'
-              min='1'
-              max='5'
-              step='1'
+            <label className='mr-3'>Calificación</label>
+            <Rate
               value={selectedMovie.rating}
-              onChange={onChange}
-              required
+              onChange={(value) => {
+                onChangeRating(value);
+              }}
             />
           </div>
           <button

@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Rate } from "antd";
+import "antd/dist/antd.css";
 import { GlobalContext } from "../context/GlobalState";
 
 export const MovieCard = ({ movie }) => {
@@ -11,8 +13,8 @@ export const MovieCard = ({ movie }) => {
       <div className='card mb-3'>
         <div className='card-body'>
           <h5 className='card-title'>{title}</h5>
+          <Rate className='mb-3' disabled defaultValue={rating} />
           <p className='card-text text-justify'>{synopsis}</p>
-          <p className='card-text text-muted'>Calificación: {rating} de 5</p>
           <Link to={`./movie/edit/${id}`} className='btn btn-outline-primary'>
             Editar
           </Link>

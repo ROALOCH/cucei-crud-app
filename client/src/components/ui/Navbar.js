@@ -1,22 +1,30 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-export const Navbar = () => {
+export const Navbar = ({ page }) => {
   return (
-    <nav className='navbar navbar-expand-sm navbar-light bg-ligth'>
+    <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
       <Link className='navbar-brand' to='/'>
-        CRUD App
+        CRUD
       </Link>
 
       <div className='navbar-collapse'>
         <div className='navbar-nav'>
           <NavLink
-            activeClassName='active'
+            activeClassName={page === "movie-page" ? "" : "active"}
+            className='nav-item nav-link'
+            exact
+            to='/'
+          >
+            Inicio
+          </NavLink>
+          <NavLink
+            activeClassName={page === "movie-page" ? "active" : ""}
             className='nav-item nav-link'
             exact
             to='/movie/new'
           >
-            Nuevo Registro
+            Agregar Película
           </NavLink>
         </div>
       </div>

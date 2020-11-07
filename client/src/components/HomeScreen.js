@@ -5,7 +5,7 @@ import { Navbar } from "./ui/Navbar";
 export const HomeScreen = () => {
   return (
     <>
-      <Navbar />
+      <Navbar page='movie-list' />
       <div className='container mt-5'>
         <MovieList />
       </div>
