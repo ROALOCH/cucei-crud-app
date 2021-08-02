@@ -22,7 +22,7 @@ npm install
 npm run build
 ```
 
-Renombrar el archivo `.env.example` a `.env` y colocar los datos de conexión a la base de datos en las variables de entorno correspondientes. Para iniciar la migración de tablas, ejecutar el comando
+Renombrar el archivo `.example.env` a `.env` y colocar los datos de conexión a la base de datos en las variables de entorno correspondientes. Para iniciar la migración de tablas, ejecutar el comando
 
 ```
 npm run migrate
